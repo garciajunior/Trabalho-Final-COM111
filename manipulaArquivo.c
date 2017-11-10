@@ -8,7 +8,7 @@ FILE *abreArq (char *nomeArq)
 	int **matrix // recebe a matriz alocada com os pesos dos caminho de cada cidade
 
 	FILE *arq;
-	arq = fopen("r","nomeArq");
+	arq = fopen("r",nomeArq);
 	if ( arq == NULL)
 	{	
 		printf("Nao foi possivel abrir arquivo\n");
