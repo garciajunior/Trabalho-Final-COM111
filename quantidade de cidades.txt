@@ -1,5 +1,0 @@
-quantidade de cidades 
-Nas próximas N linhas teremos o peso dos caminhos em relação a cada vertice (cidade)
-0 0 9
-0 0 12
-9 12 0
