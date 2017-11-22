@@ -13,3 +13,5 @@ int **alocaMatriz( int *tam);
 int  *alocaVetor(int *tam);
  
 void leituraArquivo( int **mat, int * ciclo,  int *tam, FILE *arq);
+
+void menu(char *nomeAqr);

@@ -76,20 +76,19 @@ int  *alocaVetor(int *tam)
 	return vet;
 }
 
-int calcCustoMin(int *ciclo, int **m, int *tam) {
+int calcCustoMin(int *ciclo, int **m, int *tam) 
+{
 	int custo = 0;
 	int j;
-	printf("gagaggag\n");
-	for (j = 0; j < *tam-1; j++)
+        int Tam = *tam;
+        printf("NANNANAN%d", Tam);
+	
+	for (j = 0; j < Tam-1; j++)
 	{		
 		custo += m[ciclo[j]][ciclo[j+1]];
-		 // calcula o custo de cada vertice
 	}	
-									 // porem o  ultimo custo nao eh calculado pelo pelo looping
-	custo += m[ciclo[*tam-1]][ciclo[0]]; // calcula o ultimo o custo do ultimo vertice
-	
-	
-	return custo; // retorna o custo calculado 
+	custo += m[ciclo[Tam-1]][ciclo[0]];
+        return custo; // retorna o custo calculado 
 }
 
 int *troca (int *ciclo, int i, int j)
@@ -102,13 +101,13 @@ int *troca (int *ciclo, int i, int j)
 
 void forcabruta (int *ciclo, int **mat, int *tam, int pos, int *custoMinimo)
  {
-	int custo = 0; // custo calculado para cada vertice do caminho
+	
 	int j; 	
  	printf("ehehhehe\n");
 	
 	if (pos == *tam-1)
 	{
-		custo = calcCustoMin(ciclo, mat, tam);
+		int custo = calcCustoMin(ciclo, mat, tam);
 		
 		if (custo < *custoMinimo) 
 		{
@@ -128,6 +127,62 @@ void forcabruta (int *ciclo, int **mat, int *tam, int pos, int *custoMinimo)
 	}
 	return;
 }
+void menu(char *nomeArq)
+{
+    int opcao;
+    do
+    {
+        printf("\t\t\nMenu do Calculo do menor caminha do caixeiro viajante\n");
+        printf("0. Sair\n");
+        printf("1. Calcular com 10 cidades\n");
+        printf("2. Calcular com 11 cidades\n");
+        printf("3. Calcular com 12 cidades\n");
+        printf("4. Calcular com 13 cidades\n");
+        printf("5. Calcular com 14 cidades\n");
 
 
+        printf("Opcao: ");
+        scanf("%d", &opcao);
 
+        switch( opcao )
+        {
+            case 0:
+                    system("cls || clear");
+                    printf("Saindo do menu...\n");
+                    break;
+            case 1:
+                    system("cls || clear");
+                    printf(" Insira o nome do arquivo\n");
+                    scanf( "  %s", nomeArq);
+                    forcabruta (vet, mat, tam, 0, &custoMinimo);		
+                    printf(" O menor custo entre as cidades e %d\n", custoMinimo);
+                    break;
+            case 2:
+                   system("cls || clear");
+                   printf(" Insira o nome do arquivo\n");
+                   scanf( "  %s", nomeArq);
+                   forcabruta (vet, mat, tam, 0, &custoMinimo);		
+                   printf(" O menor custo entre as cidades e %d\n", custoMinimo);
+                    break;
+            case 3:
+            case 4:
+                    system("cls || clear");
+                    printf(" Insira o nome do arquivo\n");
+                    scanf( "  %s", nomeArq);
+                    forcabruta (vet, mat, tam, 0, &custoMinimo);		
+                    printf(" O menor custo entre as cidades e %d\n", *custoMinimo);
+                    break;
+            case 5 :
+                   system("cls || clear");
+                   printf(" Insira o nome do arquivo\n");
+                   scanf( "  %s", nomeArq);
+                   forcabruta (vet, mat, tam, 0, &custoMinimo);		
+                   printf(" O menor custo entre as cidades e %d\n", *custoMinimo);
+                   break;
+             default:
+                  system("cls || clear");
+                   printf("Opcao invalida! Tente novamente.\n");
+        }
+        } while(opcao);
+
+}
